@@ -1,30 +1,27 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 export default class Clock extends Component {
-  
-    state = {
+  state = {
+    date: new Date()
+  };
+
+  componentDidMount() {
+    this.timer = setInterval(() => {
+      this.setState({
         date: new Date()
-    }
+      });
+    }, 1000);
+  }
 
-    componentDidMount(){
-        this.timer = setInterval(()=>{
-            this.setState({
-                date:new Date()
-            })
-        }, 1000)
-    }
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
 
-    componentWillUnmount(){
-        clearInterval(this.timer)
-    }
-
-
-
-    render() {
+  render() {
     return (
       <div>
-        <h1>{this.state.date.toLocaleTimeString()}</h1>
+        <h1> {this.state.date.toLocaleTimeString()} </h1>
       </div>
-    )
+    );
   }
 }
