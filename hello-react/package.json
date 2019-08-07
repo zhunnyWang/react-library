@@ -1,14 +1,11 @@
 {
-  "name": "react01",
+  "name": "hello-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@tencent/qcloud-lib": "^0.1.18",
-    "classnames": "^2.2.6",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1",
-    "typescript": "^2.6.1"
+    "react-scripts": "3.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
