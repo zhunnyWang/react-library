@@ -4,21 +4,63 @@ import dynamic from 'umi/dynamic';
 import renderRoutes from 'umi/_renderRoutes';
 
 
-let Router = DefaultRouter;
+let Router = require('dva/router').routerRedux.ConnectedRouter;
 
 let routes = [
   {
+    "path": "/login",
+    "component": require('../login').default,
+    "exact": true
+  },
+  {
     "path": "/",
-    "exact": true,
-    "component": require('../index.js').default
+    "component": require('../../layouts').default,
+    "routes": [
+      {
+        "path": "/",
+        "component": require('../goods/index').default,
+        "exact": true
+      },
+      {
+        "path": "/about",
+        "component": require('../about').default,
+        "Routes": [require('../../../routes/PrivateRoute.js').default],
+        "exact": true
+      },
+      {
+        "path": "/users",
+        "component": require('../users/_layout').default,
+        "routes": [
+          {
+            "path": "/users/",
+            "component": require('../users/index').default,
+            "exact": true
+          },
+          {
+            "path": "/users/:id",
+            "component": require('../users/$id').default,
+            "exact": true
+          },
+          {
+            "component": require('../404').default,
+            "exact": true
+          },
+          {
+            "component": () => React.createElement(require('/Users/zhunny/Desktop/react-library/react-umi/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true })
+          }
+        ]
+      },
+      {
+        "component": require('../404').default,
+        "exact": true
+      },
+      {
+        "component": () => React.createElement(require('/Users/zhunny/Desktop/react-library/react-umi/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true })
+      }
+    ]
   },
   {
-    "path": "/users",
-    "exact": true,
-    "component": require('../users.js').default
-  },
-  {
-    "component": () => React.createElement(require('/Users/zhunny/Desktop/react-library/react-umi/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: false })
+    "component": () => React.createElement(require('/Users/zhunny/Desktop/react-library/react-umi/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true })
   }
 ];
 window.g_routes = routes;
