@@ -18,7 +18,12 @@ export function Welcome1 (props) {
 export class Welcome2 extends React.Component {
   render () {
     return (
-      <div>Welcome2,{this.props.name}</div>
+      <div>
+        Welcome2,{this.props.name}
+        <div>
+          <input type="text" value="hello" disabled={this.props.disabled}/>
+        </div>
+      </div>
     )
   }
 }

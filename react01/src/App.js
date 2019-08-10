@@ -6,6 +6,7 @@ import Clock from './components/Clock'
 import StateTest from './components/StateTest'
 import CartSample from './components/CartSample'
 import Lifecycle from './components/Lifecycle'
+import InputNumber from './components/InputNumber';
 
 function formatName (user) {
   return user.firstName + ' ' + user.lastName
@@ -39,14 +40,15 @@ export default class App extends Component {
         <h1>{formatName(zhunny)}</h1> */}
         {/*设置属性的方式 */}
         {/* <img src={logo} style={{ width: '100px' }} />
-        {jsx}
-        <Welcome1 name="zhunnyWang" />
-        <Welcome2 name="zhunnyWang" />
-        <Clock />
-        <StateTest />
-        <CartSample title='购物车' /> */}
+        {jsx} */}
+        {/* <Welcome1 name="zhunnyWang" disabled={true}/>
+        <Welcome2 name="zhunnyWang" /> */}
+        {/* <Clock /> */}
+        {/* <StateTest /> */}
+        {/* <CartSample title='购物车' /> */}
         {/**生命周期 */}
-        {this.state.prop && <Lifecycle prop={this.state.prop}></Lifecycle>}
+        {/* {this.state.prop && <Lifecycle prop={this.state.prop}></Lifecycle>} */}
+        <InputNumber />
       </div>
     );
   }
